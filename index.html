@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VIEWMAP | 체험단 및 인플루언서 모집 기획안</title>
+<style>
+@font-face {
+    font-family: 'Gmarket Sans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gmarket Sans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gmarket Sans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+    margin: 0;
+    background: #f5f5f3;
+    color: #101010;
+    font-family: 'Gmarket Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.95;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+a { color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top-logo {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+.top-actions { display: flex; gap: 8px; }
+.top-actions a, .top-actions button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #111;
+    padding: 7px 13px;
+    font-size: 12px;
+    text-decoration: none;
+}
+.hero {
+    background: #101010;
+    color: #fff;
+    padding: 80px 30px 60px;
+}
+.hero-inner { max-width: 1000px; margin: auto; }
+.logo { font-size: 36px; font-weight: 700; letter-spacing: 7px; }
+.hero-label {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    margin-top: 25px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+.hero h1 {
+    color: #FFFFFF !important;
+    font-size: clamp(34px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -1.5px;
+    margin: 45px 0 25px;
+}
+.hero-subtitle {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.hero-description { color: #ddd; margin-top: 30px; }
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #444;
+    margin-top: 50px;
+    padding-top: 20px;
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+main { max-width: 1040px; margin: auto; padding: 35px 20px; }
+section {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    margin-bottom: 24px;
+    padding: 40px;
+}
+.eyebrow, .type-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 2px;
+}
+.type-label { margin-top: 35px; }
+.type-label + h3 { margin-top: 6px; }
+h2 {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 12px 0 28px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid #111;
+}
+h3 { font-size: 19px; font-weight: 700; margin: 32px 0 12px; }
+h4 { font-size: 16px; font-weight: 700; margin: 24px 0 10px; }
+p { margin: 12px 0 16px; }
+strong { font-weight: 700; }
+ul { padding-left: 22px; }
+li { margin: 9px 0; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+.metric { background: #f5f5f3; padding: 25px; min-width: 0; }
+.metric-label { color: #777; font-size: 12px; }
+.metric-number {
+    font-size: clamp(23px, 4vw, 38px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 12px 0 5px;
+}
+.metric-description { font-size: 13px; }
+.dark { background: #101010; color: #fff; }
+.dark .eyebrow { color: #aaa; }
+.contents a {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 17px 0;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+}
+.contents a:hover { background: #f5f5f3; }
+.contents-number { color: #888; font-weight: 700; }
+.contents-name { flex: 1; font-weight: 700; }
+.note {
+    background: #f5f5f3;
+    border-left: 3px solid #111;
+    padding: 18px 22px;
+    margin: 20px 0;
+}
+.content-type {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.content-type:last-child { border-bottom: none; }
+.platforms { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.platform { border: 1px solid #111; padding: 8px 18px; font-weight: 700; }
+.table-wrap { overflow-x: auto; margin: 18px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { background: #111; color: #fff; text-align: left; padding: 15px; }
+td { border-bottom: 1px solid #ddd; padding: 15px; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f8f8f8; }
+.funnel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin: 30px 0;
+}
+.funnel-item { padding: 15px 10px; text-align: center; font-weight: 700; }
+.step {
+    position: relative;
+    border-left: 1px solid #bbb;
+    margin-left: 8px;
+    padding: 8px 0 25px 25px;
+}
+.step::before {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #111;
+    left: -5px;
+    top: 15px;
+}
+.step h4 { margin: 5px 0 10px; }
+.report { background: #111; color: #fff; padding: 30px; margin: 25px 0; }
+.report-title { font-size: 32px; font-weight: 700; margin: 15px 0 5px; }
+.references {
+    background: #f5f5f3;
+    padding: 20px;
+    margin: 20px 0 30px;
+}
+.reference-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.reference-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 13px;
+    font-size: 12px;
+    text-decoration: none;
+}
+.reference-links a:hover { background: #111; color: #fff; }
+.guide-banner { background: #111; color: #fff; padding: 45px 30px; margin-bottom: 24px; }
+.guide-banner h2 { color: #fff; border: 0; margin-bottom: 0; }
+.closing { background: #111; color: #fff; padding: 65px 25px; text-align: center; }
+.closing-subtitle { font-size: 11px; letter-spacing: 2px; color: #aaa; }
+footer { text-align: center; padding: 25px; font-size: 11px; color: #888; }
+.back-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 45px;
+    height: 45px;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 90;
+}
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    .topbar { padding: 12px 15px; }
+    .top-logo { font-size: 14px; }
+    .top-actions a, .top-actions button { padding: 6px 10px; font-size: 11px; }
+    .hero { padding: 45px 24px; }
+    .hero h1 { font-size: 36px; }
+    .logo { font-size: 28px; letter-spacing: 5px; }
+    main { padding: 16px 12px; }
+    section { padding: 23px 20px; margin-bottom: 16px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 17px; }
+    .grid { gap: 9px; }
+    .metric { padding: 15px 12px; }
+    .metric-number { font-size: 24px; }
+    .note { padding: 15px; }
+    th, td { padding: 11px 8px; font-size: 12px; }
+    .report-title { font-size: 27px; }
+}
+@media print {
+    body { background: #fff; font-size: 11pt; }
+    .topbar, .back-top { display: none; }
+    main { max-width: none; padding: 0; }
+    section { border: 0; padding: 20px 0; }
+    h2, h3, h4 { break-after: avoid; }
+    .metric, .note, .step, tr { break-inside: avoid; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body id="top">
+
+<nav class="topbar">
+    <a class="top-logo" href="#top">VIEWMAP.</a>
+    <div class="top-actions">
+        <a href="#contents">목차</a>
+        <a href="#guide">촬영 가이드</a>
+        <button onclick="window.print()">PDF / 인쇄</button>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+        <div class="logo">VIEWMAP</div>
+        <div class="hero-label">MARKETING STRATEGY / 2026</div>
+        <h1>체험단 및<br>인플루언서<br>모집 기획안</h1>
+        <div class="hero-subtitle">INFLUENCER MARKETING PROPOSAL</div>
+        <p class="hero-description">자연스러운 브랜드 노출 · 브랜드 인지도 제고 · 매장 방문 유도</p>
+        <div class="hero-bottom">
+            <span>VIEWMAP MARKETING</span>
+            <span>2026 / PROPOSAL</span>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section id="overview">
+    <div class="eyebrow">PROJECT OVERVIEW</div>
+    <h2>기획 개요</h2>
+    <div class="grid">
+        <div class="metric">
+            <div class="metric-label">월별 모집 목표</div>
+            <div class="metric-number">10–15명</div>
+            <div class="metric-description">크리에이터</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">월별 원고료 한도</div>
+            <div class="metric-number">150만원</div>
+            <div class="metric-description">사전 승인 필수</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">콘텐츠 유형</div>
+            <div class="metric-number">05</div>
+            <div class="metric-description">5가지 콘텐츠 유형</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">주요 홍보 채널</div>
+            <div class="metric-number">03</div>
+            <div class="metric-description">RED / IG / Threads</div>
+        </div>
+    </div>
+</section>
+
+<section id="contents">
+    <div class="eyebrow">TABLE OF CONTENTS</div>
+    <h2>기획안 목차</h2>
+    <nav class="contents">
+        <a href="#chapter01"><span class="contents-number">01</span><span class="contents-name">기획 목적</span>›</a>
+        <a href="#chapter02"><span class="contents-number">02</span><span class="contents-name">모집 방향 및 콘텐츠 유형</span>›</a>
+        <a href="#chapter03"><span class="contents-number">03</span><span class="contents-name">주요 홍보 사항</span>›</a>
+        <a href="#chapter04"><span class="contents-number">04</span><span class="contents-name">홍보 채널 및 운영 방향</span>›</a>
+        <a href="#chapter05"><span class="contents-number">05</span><span class="contents-name">기대 효과</span>›</a>
+        <a href="#chapter06"><span class="contents-number">06</span><span class="contents-name">체험단 및 인플루언서 협업 운영 프로세스</span>›</a>
+        <a href="#chapter07"><span class="contents-number">07</span><span class="contents-name">성과 분석 및 향후 개선 방안</span>›</a>
+        <a href="#chapter08"><span class="contents-number">08</span><span class="contents-name">기획 종합 및 결론</span>›</a>
+        <a href="#guide"><span class="contents-number">GUIDE</span><span class="contents-name">체험단 매장 방문 및 콘텐츠 제작 가이드</span>›</a>
+    </nav>
+</section>
+
+<section id="chapter01">
+    <div class="eyebrow">01 — OBJECTIVE</div>
+    <h2>Ⅰ. 기획 목적</h2>
+    <p>VIEWMAP 성수 플래그십 스토어 오픈 1주년 기념 프로모션 및 신규 매장 오픈을 홍보하기 위해 체험단과 KOL/KOC를 모집하고, 다양한 유형의 SNS 콘텐츠를 통해 브랜드 노출도와 매장 인지도를 높이며 실질적인 매장 방문을 유도하고자 한다.</p>
+    <p>자연스러운 일상 공유, 한국 여행 가이드, 제품 추천 및 패션 스타일링을 주요 홍보 방향으로 설정하여 VIEWMAP이 소비자의 일상생활과 여행 일정에 자연스럽게 녹아들도록 하고, 상업적인 광고 느낌을 최소화하고자 한다.</p>
+</section>
+
+<section id="chapter02">
+    <div class="eyebrow">02 — CONTENT STRATEGY</div>
+    <h2>Ⅱ. 모집 방향 및 콘텐츠 유형</h2>
+    <p>크리에이터의 콘텐츠 스타일, 팔로워층 및 플랫폼 특성에 따라 협업 콘텐츠를 다음과 같이 5가지 유형으로 구분하여 홍보 콘텐츠의 다양성과 도달 효과를 높이고자 한다.</p>
+
+    <div class="content-type">
+        <div class="type-label">TYPE 01 / VLOG</div>
+        <h3>VLOG형｜일상 브이로그</h3>
+        <p>한국 쇼핑, 매장 방문 및 안경 착용 체험 등의 일상 활동을 중심으로 VIEWMAP을 브이로그 콘텐츠에 자연스럽게 노출하고, 크리에이터의 실제 매장 체험 및 제품 선택 과정을 보여준다.</p>
+        <p>일상적인 촬영 방식을 통해 시청자가 브이로그를 시청하는 과정에서 자연스럽게 VIEWMAP 브랜드와 매장의 특징을 인지할 수 있도록 한다.</p>
+        <div class="note"><strong>홍보 목적</strong><br>상업적인 광고 느낌을 줄이고, 자연스러운 일상 공유를 통해 브랜드 노출도와 친밀감 및 소비자 호감도를 높인다.</div>
+    </div>
+
+    <div class="content-type">
+        <div class="type-label">TYPE 02 / RECOMMENDATION</div>
+        <h3>추천형｜추천 아이템 소개</h3>
+        <p>단독 이미지·텍스트 게시물, 숏폼 영상 또는 제품 추천 콘텐츠를 통해 VIEWMAP의 브랜드 특징, 매장 공간 및 추천할 만한 안경 제품을 집중적으로 소개한다.</p>
+        <p>실제 착용 후기, 제품 디자인의 특징, 1주년 기념 프로모션 또는 신규 매장 오픈 정보를 함께 전달하여 소비자에게 실질적으로 도움이 되는 쇼핑 정보를 제공한다.</p>
+        <div class="note"><strong>홍보 목적</strong><br>브랜드, 제품 및 프로모션 정보를 명확하게 전달하고, 시청자의 콘텐츠 저장, 검색 및 공유를 유도하여 브랜드 인지도와 구매 관심도를 높인다.</div>
+    </div>
+
+    <div class="content-type">
+        <div class="type-label">TYPE 03 / GUIDE</div>
+        <h3>Guide형｜여행 가이드</h3>
+        <p>VIEWMAP을 ‘성수 반나절 여행 코스’, ‘성수 쇼핑 가이드’, ‘서울 쇼핑 코스’ 등의 한국 여행 콘텐츠에 포함하고, 주변 카페, 편집숍, 쇼핑 상권 및 인기 관광 명소와 함께 소개한다.</p>
+        <p>실용적인 여행 정보를 제공하여 한국 여행을 계획하는 관광객이 VIEWMAP을 저장하고 방문할 만한 쇼핑 장소로 인식할 수 있도록 한다.</p>
+        <div class="note"><strong>홍보 목적</strong><br>방한 관광객의 여행 및 쇼핑 수요와 연계하여 VIEWMAP이 여행 일정에 포함될 가능성을 높이고, 실질적인 매장 방문을 유도한다.</div>
+    </div>
+
+    <div class="content-type">
+        <div class="type-label">TYPE 04 / UNBOXING</div>
+        <h3>Unboxing형｜언박싱 콘텐츠</h3>
+        <p>매장 방문, 제품 추천 및 언박싱 체험을 결합하여 VIEWMAP 매장에서 안경을 고르고 다양한 제품을 착용해 보는 과정부터 제품 선택 및 이후 언박싱까지 전반적인 과정을 콘텐츠로 제작한다.</p>
+        <p>제품의 디테일, 실제 착용 모습 및 개인적인 사용 후기를 통해 안경의 디자인 특징과 스타일링 효과를 보여준다.</p>
+        <div class="note"><strong>홍보 목적</strong><br>실제 제품 선택 및 언박싱 경험을 통해 소비자의 제품 이해도와 신뢰도를 높이고 구매 관심을 유도한다.</div>
+    </div>
+
+    <div class="content-type">
+        <div class="type-label">TYPE 05 / FASHION</div>
+        <h3>Fashion형｜패션 스타일링</h3>
+        <p>안경을 전체적인 스타일링의 주요 요소로 활용하여 OOTD, What's in My Bag, 안경 메이크업 튜토리얼 및 데일리룩 등의 콘텐츠를 통해 다양한 안경테와 의상, 메이크업 및 개인 스타일의 조화로운 연출 방법을 보여준다.</p>
+        <p>언박싱 콘텐츠와 연계하여 안경 선택 및 착용 과정부터 실제 스타일링까지 확장할 수 있으며, 안경이 시력 보조 기능뿐만 아니라 개인의 개성을 표현할 수 있는 패션 아이템이라는 점을 전달한다.</p>
+        <div class="note"><strong>홍보 목적</strong><br>패션 및 뷰티 콘텐츠를 통해 안경의 패션성과 다양한 스타일링 활용도를 보여주고, VIEWMAP의 패션 브랜드 이미지를 강화하여 소비자의 구매 관심을 높인다.</div>
+    </div>
+</section>
+
+<section id="chapter03">
+    <div class="eyebrow">03 — CAMPAIGN FOCUS</div>
+    <h2>Ⅲ. 주요 홍보 사항</h2>
+
+    <div class="type-label">SEONGSU FLAGSHIP STORE</div>
+    <h3>3-1. 성수 플래그십 스토어｜상시 매장 홍보</h3>
+    <p>성수 상권의 관광 인기도 및 쇼핑 수요와 연계하여 매장 공간, 안경 착용 체험 및 브랜드 특징을 중심으로 홍보한다.</p>
+    <p>매장 방문 후기, 여행 가이드 및 패션 스타일링 등의 콘텐츠를 통해 성수 상권 내 VIEWMAP의 브랜드 노출도를 높이고, 방한 관광객 및 국내 소비자의 매장 방문을 유도한다.</p>
+    <div class="note"><strong>홍보 방향:</strong> 브랜드 인지도 제고, 매장 노출 확대, 일상적인 매장 방문 콘텐츠 및 장기적인 매장 방문 유도.</div>
+
+    <div class="type-label">1ST ANNIVERSARY</div>
+    <h3>3-2. 성수 플래그십 스토어｜오픈 1주년 기념 프로모션 홍보</h3>
+    <p>오픈 1주년 한정 혜택, 인기 안경 제품 추천 및 매장 체험을 주요 홍보 내용으로 설정하고, 제품 추천, 언박싱 및 일상 브이로그 등의 콘텐츠를 통해 프로모션 정보와 제품 특징을 전달한다.</p>
+    <p>기간 한정 프로모션 정보와 실제 제품 체험을 통해 소비자의 1주년 기념 행사에 대한 관심도를 높이고, 행사 기간 내 매장 방문 및 구매를 유도한다.</p>
+    <div class="note"><strong>홍보 방향:</strong> 1주년 기념 할인 혜택, 제품 추천, 프로모션 노출 및 단기적인 매장 방문 전환 유도.</div>
+
+    <div class="type-label">NEW STORE OPENING</div>
+    <h3>3-3. 신규 매장｜오픈 홍보</h3>
+    <p>신규 매장 오픈, 매장 공간 소개 및 주변 쇼핑 코스를 주요 홍보 내용으로 설정하고, 매장 방문 후기, 여행 가이드 및 일상 브이로그 등의 콘텐츠를 통해 VIEWMAP을 동대문 쇼핑 및 여행 일정에 포함한다.</p>
+    <p>크리에이터의 실제 매장 방문 체험을 통해 신규 매장의 인지도를 높이고, 방한 관광객 및 국내 소비자의 매장 방문을 유도한다.</p>
+    <div class="note"><strong>홍보 방향:</strong> 신규 매장 오픈, 매장 소개, 여행 코스 추천 및 신규 고객 방문 유도.</div>
+</section>
+
+<section id="chapter04">
+    <div class="eyebrow">04 — SOCIAL MEDIA STRATEGY</div>
+    <h2>Ⅳ. 홍보 채널 및 운영 방향</h2>
+    <div class="platforms">
+        <div class="platform">샤오홍슈</div>
+        <div class="platform">Instagram</div>
+        <div class="platform">Threads</div>
+    </div>
+
+    <h3>4-1. 샤오홍슈</h3>
+    <p>한국 여행, 성수 및 국내 쇼핑 가이드, 안경 추천, 매장 방문 후기 및 패션 스타일링을 주요 콘텐츠 방향으로 설정한다.</p>
+    <p>여행 가이드, 매장 방문 기록, 추천 아이템 소개 및 언박싱 등의 콘텐츠를 통해 중화권 시장 내 VIEWMAP의 브랜드 노출도를 높이고, 한국 여행을 계획하는 소비자의 콘텐츠 저장, 검색 및 실제 매장 방문을 유도한다.</p>
+    <strong>주요 콘텐츠:</strong>
+    <ul>
+        <li>일상 브이로그</li>
+        <li>한국 여행 및 쇼핑 가이드</li>
+        <li>성수 및 한국 매장 방문 추천</li>
+        <li>안경 스타일 및 제품 추천</li>
+        <li>1주년 기념 할인 혜택 및 신규 매장 오픈 정보</li>
+        <li>안경 스타일링 및 언박싱 콘텐츠</li>
+    </ul>
+
+    <h3>4-2. Instagram</h3>
+    <p>일상 브이로그, 패션 스타일링, 안경 언박싱 및 Reels 숏폼 영상을 주요 홍보 콘텐츠로 활용한다.</p>
+    <p>KOL/KOC의 개인 스타일, 시각적 감각 및 일상 공유를 통해 VIEWMAP 안경의 디자인 특징과 스타일링 효과를 자연스럽게 보여주고, 브랜드 이미지 및 제품 매력도를 높인다.</p>
+    <strong>주요 콘텐츠:</strong>
+    <ul>
+        <li>Reels 숏폼 영상</li>
+        <li>OOTD 및 안경 스타일링</li>
+        <li>일상 브이로그</li>
+        <li>제품 언박싱 및 착용 후기</li>
+        <li>매장 공간 소개 및 방문 체험</li>
+    </ul>
+
+    <h3>4-3. Threads</h3>
+    <p>일상 공유, 쇼핑 후기, 안경 추천 및 매장 체험을 주요 콘텐츠 방향으로 설정한다.</p>
+    <p>자연스럽고 일상적인 텍스트 및 이미지 콘텐츠를 통해 브랜드 관련 언급과 소통을 활성화하고, Instagram 콘텐츠와 상호 보완하여 SNS 노출 기회를 확대한다.</p>
+    <strong>주요 콘텐츠:</strong>
+    <ul>
+        <li>일상 쇼핑 및 매장 방문 후기</li>
+        <li>안경 제품 추천</li>
+        <li>한국 여행 및 쇼핑 정보</li>
+        <li>매장 체험 및 프로모션 정보 공유</li>
+    </ul>
+
+    <h3>4-4. 플랫폼 운영 원칙</h3>
+    <p>각 플랫폼의 이용 특성, 크리에이터의 콘텐츠 스타일 및 팔로워층에 따라 적합한 콘텐츠 형식을 적용하며, 모든 체험단에게 동일한 홍보 방식을 일괄적으로 요구하지 않는다.</p>
+    <p>자연스러운 콘텐츠 공유와 실제 체험을 기본 원칙으로 하되, 협업 콘텐츠 내 VIEWMAP 브랜드명, 매장 정보 및 해당 프로모션 내용이 명확하게 전달될 수 있도록 하여 크리에이터의 창작 자율성과 브랜드 홍보 효과를 동시에 확보한다.</p>
+</section>
+
+<section id="chapter05">
+    <div class="eyebrow">05 — EXPECTED RESULTS</div>
+    <h2>Ⅴ. 기대 효과</h2>
+    <p>샤오홍슈, Instagram 및 Threads를 활용한 멀티채널 노출과 다양한 유형의 체험단 및 인플루언서 협업을 통해 한국 여행, 패션 스타일링 및 안경 추천 분야에서 VIEWMAP의 브랜드 인지도를 확대하고자 한다.</p>
+
+    <h3>5-1. 브랜드 노출 및 인지도 제고</h3>
+    <p>다양한 크리에이터의 팔로워층과 콘텐츠 형식을 활용하여 SNS 내 VIEWMAP의 노출 기회를 확대하고, 더 많은 잠재 소비자가 브랜드와 매장을 인지할 수 있도록 한다.</p>
+
+    <h3>5-2. 제품 관심도 및 구매 관심 증대</h3>
+    <p>제품 추천, 실제 착용 체험, 언박싱 및 패션 스타일링 콘텐츠를 통해 소비자가 안경의 디자인 특징과 착용 효과를 보다 직관적으로 이해할 수 있도록 하여 제품 매력도를 높인다.</p>
+
+    <h3>5-3. 매장 검색 및 방문 의향 증대</h3>
+    <p>한국 여행 가이드, 쇼핑 코스 및 매장 정보를 연계하여 소비자의 콘텐츠 저장과 브랜드 검색을 유도하고, VIEWMAP이 여행 일정에 포함될 가능성을 높인다.</p>
+
+    <h3>5-4. 브랜드 SNS 콘텐츠 자산 축적</h3>
+    <p>다양한 KOL/KOC 협업을 통해 브랜드 관련 매장 방문 후기, 제품 추천 및 스타일링 콘텐츠를 지속적으로 축적하고, SNS 내 브랜드 관련 언급 및 자연스러운 콘텐츠 확산 기회를 확대한다.</p>
+
+    <div class="type-label">CUSTOMER JOURNEY</div>
+    <h3>소비자 전환 경로</h3>
+    <div class="funnel">
+        <div class="funnel-item" style="width:100%;background:#eee">01 — SNS 노출</div>
+        ↓
+        <div class="funnel-item" style="width:90%;background:#ddd">02 — 브랜드 인지</div>
+        ↓
+        <div class="funnel-item" style="width:80%;background:#bbb">03 — 콘텐츠 저장 및 검색</div>
+        ↓
+        <div class="funnel-item" style="width:70%;background:#555;color:#fff">04 — 매장 방문</div>
+        ↓
+        <div class="funnel-item" style="width:60%;background:#111;color:#fff">05 — 제품 구매</div>
+    </div>
+    <div class="note"><strong>최종 목표</strong><br>위와 같은 소비자 전환 경로를 구축하여 VIEWMAP의 브랜드 영향력과 매장 집객 효과를 단계적으로 높이고자 한다.</div>
+</section>
+
+<section id="chapter06">
+    <div class="eyebrow">06 — EXECUTION PLAN</div>
+    <h2>Ⅵ. 체험단 및 인플루언서 협업 운영 프로세스</h2>
+
+    <h3>6-1. 모집 대상 및 선정 기준</h3>
+    <p>샤오홍슈, Instagram 및 Threads에서 활발하게 활동하는 크리에이터를 주요 모집 대상으로 하며, 한국 여행, 패션 스타일링, 일상 브이로그, 매장 방문 추천 및 뷰티 콘텐츠를 지속적으로 제작하는 KOL/KOC를 우선적으로 고려한다.</p>
+    <p>크리에이터 선정 시 단순히 팔로워 수만을 기준으로 판단하지 않고 다음 항목을 종합적으로 검토한다.</p>
+    <ul>
+        <li>크리에이터의 콘텐츠 스타일이 VIEWMAP의 브랜드 이미지와 부합하는지 여부</li>
+        <li>팔로워층이 브랜드의 주요 타깃 고객 및 방한 관광객과 부합하는지 여부</li>
+        <li>기존 게시물의 조회수, 참여율, 저장 수 및 댓글의 질적 수준</li>
+        <li>브랜드와 제품을 콘텐츠에 자연스럽게 녹여낼 수 있는 콘텐츠 제작 역량</li>
+        <li>협업 조건에 따른 매장 체험, 콘텐츠 업로드 및 정보 표기 가능 여부</li>
+    </ul>
+
+    <h3>6-2. 협업 방식 및 비용 운영 기준</h3>
+    <ul>
+        <li>초기에는 <strong>제품 협찬을 주요 협업 방식으로 운영</strong>하며, 체험단 및 KOL/KOC를 모집하여 VIEWMAP 매장에 직접 방문하도록 하고 제품 체험, 촬영 및 SNS 콘텐츠 제작을 진행한다.</li>
+        <li><strong>월 10~15명 모집을 기본 목표로 설정</strong>하고, 지속적인 협업 콘텐츠 업로드를 통해 SNS 내 브랜드 노출도를 유지하며 홍보 효과를 단계적으로 확대한다.</li>
+        <li>협업 대상자가 별도의 협업 비용을 요청하는 경우, 팔로워층, 콘텐츠 품질, 기존 게시물의 참여 성과 및 예상 홍보 효과를 종합적으로 검토한다.</li>
+        <li>유료 협업의 경우 1인당 예상 비용은 최대 300,000원을 기준으로 하며, 월별 협업 원고료 총액은 <strong>1,500,000원을 초과하지 않는 것을 원칙으로 한다.</strong> 모든 유료 협업은 최종 확정 전 부장님의 사전 승인을 받은 후 진행한다.</li>
+    </ul>
+
+    <h4>협찬 제품</h4>
+    <div class="grid">
+        <div class="metric dark">
+            <div class="eyebrow">VIDEO CONTENT</div>
+            <p>영상 콘텐츠 제작자</p>
+            <div class="metric-number">안경 2개</div>
+            <p>총 130,000원 이하</p>
+        </div>
+        <div class="metric">
+            <div class="eyebrow">PHOTO CONTENT</div>
+            <p>이미지·텍스트 콘텐츠 제작자</p>
+            <div class="metric-number">안경 1개</div>
+            <p>60,000원 이하</p>
+        </div>
+    </div>
+
+    <h4>협업 예산 기준</h4>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>항목</th><th>운영 기준</th></tr></thead>
+            <tbody>
+                <tr><td>월별 모집 목표</td><td>10~15명</td></tr>
+                <tr><td>주요 협업 방식</td><td>제품 협찬</td></tr>
+                <tr><td>영상 콘텐츠 협찬</td><td>안경 2개 / 총 130,000원 이하</td></tr>
+                <tr><td>이미지·텍스트 콘텐츠 협찬</td><td>안경 1개 / 60,000원 이하</td></tr>
+                <tr><td>1인당 원고료 한도</td><td>300,000원</td></tr>
+                <tr><td>월별 원고료 총액 한도</td><td>1,500,000원</td></tr>
+                <tr><td>유료 협업 승인</td><td>부장님 사전 승인 필수</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>6-3. 협업 운영 프로세스</h3>
+
+    <div class="step">
+        <div class="eyebrow">STEP 01</div>
+        <h4>1단계｜모집 및 선정</h4>
+        <p>5가지 콘텐츠 유형과 주요 홍보 채널을 기준으로 VIEWMAP의 브랜드 이미지에 적합한 크리에이터를 발굴하고, 협업 적합도 및 예상 홍보 효과를 검토한다.</p>
+    </div>
+    <div class="step">
+        <div class="eyebrow">STEP 02</div>
+        <h4>2단계｜협업 조건 확인</h4>
+        <p>협업 대상자와 협업 방식, 댓글 관리, 매장 방문 일정, 촬영 내용, 업로드 플랫폼, 업로드 기한 및 기타 필요한 조건을 사전에 확인한다.</p>
+    </div>
+    <div class="step">
+        <div class="eyebrow">STEP 03</div>
+        <h4>3단계｜매장 체험 및 콘텐츠 제작</h4>
+        <p>크리에이터가 지정된 매장을 방문하도록 일정을 조율하고, 협업 유형에 따라 매장 촬영, 안경 착용 체험 및 콘텐츠 제작을 진행한다.</p>
+    </div>
+    <div class="step">
+        <div class="eyebrow">STEP 04</div>
+        <h4>4단계｜콘텐츠 확인 및 업로드</h4>
+        <p>사전에 협의된 협업 절차에 따라 브랜드명, 매장 정보, 제품 모델명 및 프로모션 정보가 정확하게 반영되었는지 확인한다.</p>
+        <p>크리에이터의 개인 스타일과 솔직한 후기를 존중하는 범위 내에서 콘텐츠 업로드 및 브랜드 태그를 완료한다.</p>
+    </div>
+    <div class="step">
+        <div class="eyebrow">STEP 05</div>
+        <h4>5단계｜성과 추적 및 데이터 정리</h4>
+        <p>업로드된 콘텐츠, 게시물 링크, 협업 대상자 및 관련 데이터를 정리하여 향후 협업 평가 및 모집 전략 개선을 위한 참고 자료로 활용한다.</p>
+    </div>
+
+    <h3>6-4. 콘텐츠 업로드 및 활용 기준</h3>
+    <ul>
+        <li>협업 콘텐츠는 원칙적으로 매장 체험 후 <strong>7~14일 이내</strong>에 업로드하며, 실제 업로드 일정은 협업 유형에 따라 별도로 협의할 수 있다.</li>
+        <li>Instagram 협업 게시물 또는 Reels의 경우 사전 협의에 따라 VIEWMAP 공식 계정을 공동 작업자로 초대해야 한다. 플랫폼 기능 또는 계정 설정으로 인해 공동 작업이 어려운 경우 별도의 태그 방식을 협의한다.</li>
+        <li>크리에이터의 콘텐츠를 브랜드 공식 SNS, 웹사이트에 재게시하거나 광고 집행에 활용하는 경우, 콘텐츠 활용 범위 및 사용 권한에 관한 조건을 사전에 확인한다.</li>
+    </ul>
+</section>
+
+<section id="chapter07">
+    <div class="eyebrow">07 — PERFORMANCE TRACKING</div>
+    <h2>Ⅶ. 성과 분석 및 향후 개선 방안</h2>
+    <p>체험단 및 인플루언서 협업의 실질적인 홍보 효과를 평가하기 위해 각 SNS 플랫폼에서 확보 가능한 데이터를 수집 및 분석한다.</p>
+    <p>매월 10일까지 전월 성과 분석 보고서를 제출하여 향후 협업 평가 및 홍보 전략 개선을 위한 근거 자료로 활용한다.</p>
+
+    <div class="report">
+        <div class="eyebrow">MONTHLY PERFORMANCE REPORT</div>
+        <div class="report-title">매월 10일까지</div>
+        전월 성과 분석 보고서 제출
+    </div>
+
+    <h3>7-1. 주요 성과 추적 지표</h3>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>평가 항목</th><th>추적 내용</th></tr></thead>
+            <tbody>
+                <tr><td>협업 운영</td><td>모집 인원, 협업 완료 인원, 콘텐츠 업로드 완료율</td></tr>
+                <tr><td>콘텐츠 노출</td><td>조회수, 도달 수, 노출 수</td></tr>
+                <tr><td>SNS 참여</td><td>좋아요, 댓글, 공유 및 저장 수</td></tr>
+                <tr><td>브랜드 인지도</td><td>브랜드 태그, 관련 검색 및 SNS 내 브랜드 언급</td></tr>
+                <tr><td>매장 방문 유도</td><td>고객 문의, 매장 방문 고객 피드백 및 추적 가능한 프로모션 이용 현황</td></tr>
+                <tr><td>콘텐츠 자산 축적</td><td>지속적으로 활용 가능한 협업 콘텐츠 및 관련 UGC 수량</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>7-2. 향후 개선 방향</h3>
+    <p>플랫폼별, 크리에이터별 및 콘텐츠 유형별 성과를 바탕으로 브랜드 노출, 제품 관심도 및 매장 방문 의향을 효과적으로 높일 수 있는 협업 유형을 분석한다.</p>
+    <p>향후 콘텐츠 품질이 안정적이고 팔로워와의 소통이 활발하며 VIEWMAP의 브랜드 이미지에 부합하는 크리에이터와의 지속적인 협업을 우선적으로 고려하여 브랜드에 적합한 KOL/KOC 협업 리스트를 단계적으로 구축한다.</p>
+    <p>또한 다양한 콘텐츠 유형 테스트와 시즌 및 프로모션 운영을 통해 촬영 가이드, 주요 홍보 사항 및 협업 방식을 지속적으로 개선하여 전반적인 홍보 효율을 높인다.</p>
+</section>
+
+<section id="chapter08">
+    <div class="eyebrow">08 — CONCLUSION</div>
+    <h2>Ⅷ. 기획 종합 및 결론</h2>
+    <p>이번 VIEWMAP 체험단 및 인플루언서 모집 기획은 ‘자연스러운 브랜드 노출, 브랜드 인지도 제고, 매장 방문 유도’를 핵심 방향으로 설정하고, 5가지 콘텐츠 유형과 3개의 주요 SNS 플랫폼을 연계하여 다양한 브랜드 홍보 방식을 구축하고자 한다.</p>
+    <p>일상 브이로그 및 여행 가이드를 통해 브랜드의 자연스러운 노출을 확대하고, 제품 추천, 언박싱 및 패션 스타일링 콘텐츠를 통해 VIEWMAP의 제품 매력도와 브랜드 이미지를 강화한다.</p>
+    <p>동시에 성수 플래그십 스토어의 상시 홍보, 오픈 1주년 기념 프로모션 및 동대문 신규 매장 오픈에 따라 각각의 주요 홍보 방향을 설정하여 단기적인 프로모션 노출과 장기적인 브랜드 운영을 동시에 추진한다.</p>
+    <p>궁극적으로 지속적인 KOL/KOC 협업을 통해 SNS 내 관심을 브랜드 검색, 매장 방문 및 실제 구매로 전환하고, VIEWMAP의 장기적인 홍보에 활용할 수 있는 SNS 콘텐츠 자산을 축적하고자 한다.</p>
+</section>
+
+<!-- CONTENT CREATION GUIDE -->
+
+<div class="guide-banner" id="guide">
+    <div class="eyebrow">CONTENT CREATION GUIDE</div>
+    <h2>체험단 매장 방문 및<br>콘텐츠 제작 가이드</h2>
+</div>
+
+<section>
+    <p>본 가이드는 VIEWMAP과 협업하는 체험단 및 KOL/KOC를 대상으로 하며, 다양한 유형의 SNS 콘텐츠를 통해 브랜드 특징, 매장 정보 및 프로모션 내용을 효과적으로 전달하는 동시에 크리에이터 고유의 촬영 스타일과 콘텐츠 특성을 유지하는 것을 목적으로 한다.</p>
+
+    <div class="type-label">COMMON GUIDELINES</div>
+    <h2>6-1. 공통 촬영 및 업로드 가이드</h2>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>항목</th><th>필수 및 권장 사항</th></tr></thead>
+            <tbody>
+                <tr><td>브랜드 노출</td><td>VIEWMAP 브랜드 로고 또는 브랜드명을 명확하게 노출해야 함</td></tr>
+                <tr><td>매장 촬영</td><td>매장 외관, B1F / 1F / 2F / 3F 내부 공간 및 안경 진열 공간을 포함해야 함</td></tr>
+                <tr><td>제품 체험</td><td>안경을 직접 착용하여 실제 착용 모습을 보여주어야 함</td></tr>
+                <tr><td>제품 클로즈업</td><td>안경테 디자인, 제품 디테일 및 정면 착용 모습 촬영 권장</td></tr>
+                <tr><td>매장 정보</td><td>매장명, 주소 및 교통 정보 표기</td></tr>
+                <tr><td>프로모션 정보</td><td>협업 매장에 따라 1주년 기념 할인 혜택 또는 신규 매장 오픈 정보 포함</td></tr>
+                <tr><td>Instagram 공동 작업</td><td>VIEWMAP 공식 계정을 공동 작업자로 초대해야 함</td></tr>
+                <tr><td>업로드 일정</td><td>원칙적으로 체험 후 7일 이내 업로드 완료</td></tr>
+                <tr><td>필수 해시태그</td><td>#VIEWMAP #韓國眼鏡</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="note">
+        <strong>추가 운영 원칙</strong>
+        <p>협업 콘텐츠는 VIEWMAP을 주요 홍보 대상으로 하며, 브랜드 협업 구간 내 타 경쟁 안경 브랜드 또는 제품이 명확하게 홍보되는 장면은 지양한다. 크리에이터의 솔직한 체험 후기와 고유의 콘텐츠 스타일은 유지할 수 있다.</p>
+    </div>
+</section>
+
+<section id="content-guide">
+    <div class="eyebrow">CONTENT TYPE GUIDELINES</div>
+    <h2>6-2. 콘텐츠 유형별 촬영 가이드</h2>
+
+    <div class="type-label">TYPE 01 / VLOG</div>
+    <h3>VLOG형 — 일상 브이로그</h3>
+    <p>자연스러운 일상 기록 속에서 VIEWMAP이 주요 매장 방문 콘텐츠로 부각될 수 있도록 한다.</p>
+    <h4>촬영 가이드</h4>
+    <ul>
+        <li>브랜드 노출 기회를 높이기 위해 VIEWMAP을 영상 내 첫 번째 주요 매장 방문 구간에 배치해야 한다.</li>
+        <li>영상 시작 후 3~5초 이내에 안경 제품, 착용 모습 또는 매장의 주요 특징을 먼저 노출하여 시청자의 지속적인 시청을 유도하는 것을 권장한다.</li>
+        <li>쇼핑, 매장 입장, 안경 선택 및 착용 등의 자연스러운 과정을 기록하여 실제 매장 체험을 보여준다.</li>
+        <li>VIEWMAP 노출 구간이 지나치게 짧지 않도록 하며, 브랜드 및 제품을 충분히 인지할 수 있도록 구성한다.</li>
+        <li>협업 홍보 구간 내 타 경쟁 안경 브랜드의 제품 추천 내용을 의도적으로 포함하지 않는다.</li>
+    </ul>
+    <div class="references">
+        <div class="eyebrow">REFERENCE CONTENTS</div>
+        <h4>샤오홍슈</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6af2f9690000000009021515?source=webshare&amp;xhsshare=pc_web&amp;xsec_token=ABppCEaiQ_yxi7i9zLjI3gaXH4z3xeetpY4mu0L7BL1ok=&amp;xsec_source=pc_share">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6afc062b0000000025012a56?source=webshare&amp;xhsshare=pc_web&amp;xsec_token=ABk7Jt63iRIrkjElQjYuG4EyWVrhI90uBdW6KuXqrJqQw=&amp;xsec_source=pc_share">레퍼런스 02 ↗</a>
+        </div>
+        <h4>Instagram</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DflpRmyBlmU/">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DPOihyqAXiK/">레퍼런스 02 ↗</a>
+        </div>
+    </div>
+
+    <div class="type-label">TYPE 02 / RECOMMENDATION</div>
+    <h3>추천형 — 추천 아이템 소개</h3>
+    <p>VIEWMAP의 브랜드 특징과 제품의 장점을 명확하게 보여주고, 다양한 추천 아이템 콘텐츠를 통해 시청자의 저장, 검색 및 구매를 유도한다.</p>
+    <h4>촬영 가이드</h4>
+    <ul>
+        <li>영상 또는 게시물의 도입부에 제품 추천 이유, 시선을 끌 수 있는 안경 제품 또는 실제 착용 모습을 직접적으로 노출한다.</li>
+        <li>제품의 다양성을 보여줄 수 있도록 서로 다른 스타일의 안경 2~3종을 소개하는 것을 권장한다.</li>
+        <li>실제 착용 후기를 바탕으로 안경테 디자인, 착용 효과 및 스타일링 특징을 소개한다.</li>
+        <li>시청자가 제품을 쉽게 인지할 수 있도록 제품 디테일 클로즈업 촬영을 권장한다.</li>
+        <li>VIEWMAP 브랜드명, 매장 위치 및 해당 프로모션 정보를 명확하게 표기한다.</li>
+        <li>한국 필수 쇼핑 리스트, 패션 액세서리, 뷰티 및 라이프스타일 아이템 등 다양한 추천 콘텐츠와 연계할 수 있다. VIEWMAP 안경을 추천 리스트에 자연스럽게 포함하여 콘텐츠 도달 범위를 확대하고, 다양한 키워드를 통한 검색 노출 기회를 늘려 더 많은 잠재 소비자의 관심을 유도한다.</li>
+    </ul>
+    <div class="references">
+        <div class="eyebrow">REFERENCE CONTENTS</div>
+        <h4>샤오홍슈</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6a2d3961000000001603de6c?xsec_token=ABvNhYIwrq1O-GGTES1IWjeJmD6170uY43FwoWKVwa_P0=&amp;xsec_source=pc_search">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6ab4ecd9000000001a02882e?xsec_token=ABiqx8UY6OoyWh-OF_3PEH5-vmlAhvvLZ2QvS14kvVPYM=&amp;xsec_source=pc_search&amp;source=web_search_result_notes">레퍼런스 02 ↗</a>
+        </div>
+        <h4>Instagram</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/Dejl7DSAmm7/">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DZxxzgFBLbl/">레퍼런스 02 ↗</a>
+        </div>
+    </div>
+
+    <div class="type-label">TYPE 03 / GUIDE</div>
+    <h3>Guide형 — 여행 가이드</h3>
+    <p>VIEWMAP을 한국 여행 및 쇼핑 일정에서 추천할 만한 매장 방문 장소로 소개한다.</p>
+    <h4>촬영 가이드</h4>
+    <ul>
+        <li>VIEWMAP을 여행 가이드 내 명확하게 추천하는 쇼핑 장소로 포함해야 한다.</li>
+        <li>브랜드 노출 기회를 높이기 위해 VIEWMAP을 여행 가이드 콘텐츠의 앞부분에 배치하는 것을 권장한다.</li>
+        <li>주변 카페, 편집숍, 쇼핑 상권 및 인기 관광 명소와 연계하여 완성도 있는 쇼핑 코스를 구성할 수 있다.</li>
+        <li>매장명, 교통편, 위치 및 방문 추천 이유를 제공한다.</li>
+        <li>단순히 매장명이나 사진만 노출하는 방식은 지양하며, 실제 매장 방문, 매장 환경 및 안경 착용 장면을 포함해야 한다.</li>
+        <li>게시물의 썸네일, 제목 또는 영상 자막에 지역명과 쇼핑 관련 키워드를 포함하여 콘텐츠의 검색 및 저장 가치를 높인다.</li>
+    </ul>
+    <div class="references">
+        <div class="eyebrow">REFERENCE CONTENTS</div>
+        <h4>샤오홍슈</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/69a5ac2f000000001d024c12?xsec_token=ABD3US2lyX9qo-zkE-xkDXcb1W1ClwGybAodMnx5vLsfs=&amp;xsec_source=pc_user">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6abf4e6d00000000120374e8?xsec_token=ABo3QV85pMVMrAcOWiWrq-1RNuHwFbIwlkuXAo00qDwEs=&amp;xsec_source=pc_search&amp;source=web_search_result_notes">레퍼런스 02 ↗</a>
+        </div>
+        <h4>Instagram</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DeorwijymC6/">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DW3yT0ekVpV/">레퍼런스 02 ↗</a>
+        </div>
+    </div>
+
+    <div class="type-label">TYPE 04 / UNBOXING</div>
+    <h3>Unboxing형 — 언박싱 콘텐츠</h3>
+    <p>실제 제품 선택, 착용 및 언박싱 과정을 통해 제품의 매력도를 높이고 소비자의 구매 관심을 유도한다.</p>
+    <h4>촬영 가이드</h4>
+    <ul>
+        <li>VIEWMAP 매장을 방문하여 안경을 선택하고 다양한 제품을 착용해 보는 과정을 기록한다.</li>
+        <li>최종적으로 선택한 안경을 촬영하여 안경테 디자인과 제품 디테일을 명확하게 보여준다.</li>
+        <li>실제 제공받은 제품의 패키지, 구성품 및 언박싱 과정을 보여준다.</li>
+        <li>해당 안경을 선택한 이유, 실제 착용 모습 및 개인적인 사용 후기를 공유한다.</li>
+        <li>영상 도입부에 언박싱 장면, 제품 클로즈업 또는 착용 모습을 활용하여 시청자의 관심을 유도하는 것을 권장한다.</li>
+        <li>데일리룩 또는 일상생활 속 상황과 연계하여 실제 생활에서 안경을 활용하는 스타일링 방법을 보여줄 수 있다.</li>
+    </ul>
+    <div class="references">
+        <div class="eyebrow">REFERENCE CONTENTS</div>
+        <h4>샤오홍슈</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6a7d67990000000033037695?xsec_token=ABrS63ociDziMH0a0gUXYnl2yTmNCq830qUtlIzuaJxSU=&amp;xsec_source=">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/69f42cb100000000350382f8?xsec_token=ABnOumIqiKSBn-NV2d-AMoFTwmB-X1Lrnz5s0XDgA4IlE=&amp;xsec_source=pc_search&amp;source=web_search_result_notes">레퍼런스 02 ↗</a>
+        </div>
+        <h4>Instagram</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DW08cu_DM2m/">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/Df3mEneAsRD/">레퍼런스 02 ↗</a>
+        </div>
+    </div>
+
+    <div class="type-label">TYPE 05 / FASHION</div>
+    <h3>Fashion형 — 패션 스타일링</h3>
+    <p>안경을 전체적인 스타일링의 시각적 포인트로 활용하여 VIEWMAP의 패션 브랜드 이미지를 강화한다.</p>
+    <h4>촬영 가이드</h4>
+    <ul>
+        <li>안경을 패션 스타일링 또는 메이크업의 주요 아이템으로 활용하여 제품의 패션성을 보여준다.</li>
+        <li>OOTD, What's in My Bag, 안경 메이크업 튜토리얼 및 데일리룩 등의 주제와 연계할 수 있다.</li>
+        <li>동일한 안경으로 다양한 스타일을 연출하거나, 서로 다른 안경테를 활용하여 스타일의 차이를 보여주는 것을 권장한다.</li>
+        <li>시청자가 안경 제품과 실제 착용 효과를 명확하게 확인할 수 있도록 선명한 정면 착용 장면을 반드시 포함해야 한다.</li>
+        <li>매장 내 착용 체험, 제품 선택 또는 언박싱 장면을 추가하여 콘텐츠와 VIEWMAP 브랜드 간의 연관성을 형성할 수 있다.</li>
+        <li>크리에이터가 자신의 개성과 스타일에 맞게 자유롭게 스타일링할 수 있도록 권장하며, 지나치게 정형화된 제품 소개 방식은 지양한다.</li>
+    </ul>
+    <div class="references">
+        <div class="eyebrow">REFERENCE CONTENTS</div>
+        <h4>샤오홍슈</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6ae98fd7000000000e0340f5?xsec_token=ABra-9CEuTKzGicAiqn1YFYq8-xBFB6RZ4GfcPETZ5KZQ=&amp;xsec_source=pc_search&amp;source=web_search_result_notes">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6a2a4ef000000000070110bf?xsec_token=ABwLX8yyMW7zXOJ9KdBx3ztqjf_y51GhLXfRErxAPP0OU=&amp;xsec_source=pc_search&amp;source=web_search_result_notes">레퍼런스 02 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.rednote.com/discovery/item/6aa2707b00000000260170f3?xsec_token=ABYctlnziIojdlREQXk1FiJbvSeZCiXXxw1IplmtnyV-I=&amp;xsec_source=pc_search&amp;source=web_note_detail_r10">레퍼런스 03 ↗</a>
+        </div>
+        <h4>Instagram</h4>
+        <div class="reference-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/C1E1Etvv8pN/">레퍼런스 01 ↗</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/p/DRhJ3owE0d8/">레퍼런스 02 ↗</a>
+        </div>
+    </div>
+</section>
+
+<section id="store-guide">
+    <div class="eyebrow">STORE PROMOTION GUIDELINES</div>
+    <h2>6-3. 매장별 필수 홍보 정보</h2>
+
+    <div class="type-label">A / SEONGSU FLAGSHIP STORE</div>
+    <h3>A. 성수 플래그십 스토어｜상시 매장 홍보</h3>
+    <p>브랜드 이미지, 매장 공간 및 안경 착용 체험을 주요 홍보 내용으로 설정한다.</p>
+    <p>콘텐츠에는 VIEWMAP 브랜드명, 성수 플래그십 스토어 위치, 매장 특징 및 실제 안경 착용 장면이 명확하게 포함되어야 한다.</p>
+    <p>성수 쇼핑, 한국 여행 및 패션 스타일링 등의 주제와 연계하여 매장의 장기적인 노출도와 방문 의향을 높이는 것을 권장한다.</p>
+
+    <div class="type-label">B / 1ST ANNIVERSARY</div>
+    <h3>B. 성수 플래그십 스토어｜오픈 1주년 기념 프로모션 홍보</h3>
+    <p>오픈 1주년 한정 할인 혜택, 인기 안경 제품 및 매장 체험을 주요 홍보 내용으로 설정한다.</p>
+
+    <div class="grid">
+        <div class="metric dark">
+            <div class="eyebrow">1ST ANNIVERSARY</div>
+            <h4>성수 플래그십 스토어<br>오픈 1주년 기념 프로모션</h4>
+            <div class="metric-number">UP TO 30% OFF</div>
+            <p>지정 상품 최대 30% 할인</p>
+            <p>2층 상품에 한하여 적용</p>
+            <p>2026년 12월 31일까지</p>
+        </div>
+        <div class="metric">
+            <div class="eyebrow">OPEN RUN</div>
+            <h4>오픈런 시간대 할인 혜택</h4>
+            <div class="metric-number">10,000원 OFF</div>
+            <p>매일 10:00~13:00</p>
+            <p>행사 조건에 해당하는 상품 구매 시 적용</p>
+            <p>2026년 12월 31일까지</p>
+            <p>일부 상품에 한하여 적용<br>2층 상품은 할인 대상에서 제외</p>
+        </div>
+    </div>
+
+    <div class="type-label">C / STORE GRAND OPENING</div>
+    <h3>C. 신규 매장｜오픈 홍보</h3>
+    <p>신규 매장 오픈, 매장 공간, 안경 착용 체험 및 주변 쇼핑 코스를 주요 홍보 내용으로 설정한다.</p>
+    <p>협업 콘텐츠에는 신규 매장명, 위치, 교통편, 매장 특징 및 실제 방문 체험이 포함되어야 한다.</p>
+    <p>서울 쇼핑 가이드, 서울 쇼핑 코스 및 신규 매장 방문 등의 주제와 연계하여 신규 매장의 노출도를 높이고 관광객의 매장 방문을 유도한다.</p>
+</section>
+
+<div class="closing">
+    <div class="logo">VIEWMAP</div>
+    <p class="closing-subtitle">INFLUENCER MARKETING </p>
+    <div style="width:40px;height:1px;background:#777;margin:30px auto"></div>
+    <p>자연스러운 브랜드 노출 · 브랜드 인지도 제고 · 매장 방문 유도</p>
+    <p class="closing-subtitle">THANK YOU.</p>
+</div>
+
+</main>
+
+<footer>© 2026 VIEWMAP — MARKETING PROPOSAL</footer>
+
+<a class="back-top" href="#top" aria-label="맨 위로 이동">↑</a>
+
+</body>
+</html>
